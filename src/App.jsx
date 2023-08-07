@@ -15,6 +15,9 @@ function App() {
   const updateDistance = (workout) => {
     const dateIndex = workouts.findIndex(({ date }) => workout.date === date);
     const existedDate = workouts[dateIndex];
+    if (!existedDate) {
+      return
+    }
     const newWorkout = {
       ...existedDate,
       distance: parseInt(existedDate.distance) + parseInt(workout.distance)
